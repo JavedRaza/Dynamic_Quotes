@@ -10,19 +10,39 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h2 id="quote">jaived<h2>
+        <!-- <h2 id="quote"><h2>
         <h3 id="author"><h2>
-        <button type="button" id="button">change</button>
-        <button type="button" id="tweet">tweet</button>
+        <button type="button" id="button">NewQuote</button>
+        <button type="button" id="tweet">Tweet</button> -->
+        <div class="container">
+            <div class="inner">
+                <div class="box">
+                    <p class="number">
+                        <img src = "images/logo.png" alt="TweetMe" title="TweetMe" id="tweet">
+                    </p>
+                    <div class="text">
+                        <i class="start-quote fas fa-quote-left"></i>
+                        <p id="quote" class="qoutes"></p>
+                        <p id="author" class="author"></p>
+                    </div>
+                    <label class="button">
+                        <p id="button">New Quote</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+
          
         <script>
             const quote = document.getElementById("quote");
             const author = document.getElementById("author");
             const chgQuote = document.getElementById("button");
             const tweet = document.getElementById("tweet");
+            let Qdata = "";
             let data = "";
             let textQuote = "";
             let authorQuote = "";
@@ -31,11 +51,13 @@
             window.open(tweetapi)
         }
         const setvalue = () =>{
-            let num = Math.floor((Math.random()*10));
-             textQuote = `${data[num].text}`;
-              authorQuote = `${data[num].author}`;
-              quote.innerHTML = textQuote;
-              author.innerHTML = authorQuote;
+            let num = Math.floor((Math.random()*(data.length)));
+              Qdata = data[num];
+              textQuote = `${Qdata.text}`;
+            //   authorQuote = `${Qdata.author}`;
+              quote.innerText = textQuote;
+              Qdata.author == null ? (author.innerText = "Unknown") : (author.innerText  = `${Qdata.author}`); 
+            //   author.innerHTML = `${Qdata.author}`; 
         }
             
         const getQuotes = async () => {
