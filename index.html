@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <!-- <h2 id="quote"><h2>
@@ -25,13 +25,13 @@
                         <img src = "images/logo.png" alt="TweetMe" title="TweetMe" id="tweet">
                     </p>
                     <div class="text">
-                        <i class="start-quote fas fa-quote-left"></i>
+                        <i class="start-quote fas fa-quote-left fa-2x"></i>
                         <p id="quote" class="qoutes"></p>
                         <p id="author" class="author"></p>
                     </div>
-                    <label class="button">
+                    <div class="button">
                         <p id="button">New Quote</p>
-                    </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,7 +56,8 @@
               textQuote = `${Qdata.text}`;
             //   authorQuote = `${Qdata.author}`;
               quote.innerText = textQuote;
-              Qdata.author == null ? (author.innerText = "Unknown") : (author.innerText  = `${Qdata.author}`); 
+              Qdata.author == null ? (author.innerText = "-By Unknown") : (author.innerText  = "-By " + `${Qdata.author}`); 
+
             //   author.innerHTML = `${Qdata.author}`; 
         }
             
